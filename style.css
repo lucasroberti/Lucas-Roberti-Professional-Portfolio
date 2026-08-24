@@ -23,7 +23,7 @@ body {
   position: relative;
 }
 
-/* Fixed, low-opacity background image behind every section */
+/* Fixed low-opacity background image behind every section */
 body::before {
   content: "";
   position: fixed;
