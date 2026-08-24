@@ -1,0 +1,422 @@
+/* ============================
+   RESET & VARIABLES
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #0d0d0d;
+  --color-text: #ffffff;
+  --color-accent: #e63946;
+  --font-mono: 'Courier New', monospace;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Fixed, low-opacity background image behind every section */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('./images/home-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.94;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+/* ============================
+   SKIP LINK (accessibility)
+   ============================ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--color-accent);
+  color: white;
+  padding: 12px 20px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ============================
+   HEADER / NAV
+   ============================ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 48px;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: lowercase;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+/* ============================
+   SLIDE / SCROLL-SNAP LAYOUT
+   ============================ */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 48px;
+  position: relative;
+}
+
+/* ============================
+   TYPOGRAPHY
+   ============================ */
+h1, h2, h3,
+nav a,
+.skip-link,
+code,
+#projects li span::before {
+  font-family: var(--font-mono);
+}
+
+a {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+h1 {
+  font-size: clamp(40px, 8vw, 96px);
+  font-weight: 700;
+  text-transform: lowercase;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  text-transform: lowercase;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.6;
+  text-transform: lowercase;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 16px;
+  max-width: 500px;
+}
+
+/* ============================
+   HOME SECTION
+   ============================ */
+#home {
+  justify-content: flex-end;
+  padding-bottom: 120px;
+}
+
+#home p:last-of-type {
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  text-transform: lowercase;
+  margin-top: 16px;
+}
+
+/* ============================
+   FIXED SLIDE-NAV BUTTONS
+   ============================ */
+.slide-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: fixed;
+  bottom: 48px;
+  left: 48px;
+  z-index: 20;
+}
+
+.nav-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.nav-circle:hover {
+  opacity: 0.8;
+}
+
+/* ============================
+   ABOUT SECTION
+   ============================ */
+#about {
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+}
+
+.about-photo {
+  position: relative;
+  width: 33.333%;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+               linear-gradient(to bottom, transparent, black 10%, black 100%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+                       linear-gradient(to bottom, transparent, black 10%, black 100%);
+  -webkit-mask-composite: source-in;
+}
+
+.about-text {
+  padding: 0 64px;
+}
+
+.about-text h2 {
+  max-width: 320px;
+}
+
+/* ============================
+   STACK SECTION
+   ============================ */
+#stack {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+  margin-top: 48px;
+}
+
+.stack-grid > div {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.stack-grid ul {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.stack-grid li {
+  font-size: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stack-grid li i {
+  font-size: 22px;
+  color: var(--color-accent);
+}
+
+/* ============================
+   PROJECTS SECTION
+   ============================ */
+#projects ol {
+  list-style: none;
+  counter-reset: project-counter;
+  width: 100%;
+  margin-top: 64px;
+}
+
+#projects li {
+  counter-increment: project-counter;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: clamp(20px, 2.8vw, 34px);
+}
+
+#projects li span::before {
+  content: counter(project-counter, decimal-leading-zero) ". ";
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+#projects li a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: clamp(14px, 1.2vw, 18px);
+  opacity: 0.7;
+  white-space: nowrap;
+  margin-left: 24px;
+}
+
+#projects li a:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+/* ============================
+   CONTACT SECTION
+   ============================ */
+#contact {
+  align-items: flex-start;
+}
+
+#contact-heading .line {
+  display: block;
+}
+
+#contact-heading .line:nth-child(2) {
+  margin-left: 18%;
+}
+
+#contact-heading .line:nth-child(3) {
+  margin-left: 9%;
+}
+
+#contact ul {
+  list-style: none;
+  margin-top: 48px;
+  align-self: flex-end;
+  text-align: right;
+}
+
+#contact li {
+  margin-bottom: 20px;
+}
+
+#contact a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: clamp(18px, 2.2vw, 28px);
+}
+
+#contact a:hover {
+  color: var(--color-accent);
+}
+
+/* ============================
+   RESPONSIVE (mobile)
+   ============================ */
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  section {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 24px 60px;
+    justify-content: flex-start;
+  }
+
+  header {
+    padding: 16px 24px;
+  }
+
+  nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  nav a {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* Prev/next slide buttons only make sense for the full-screen
+     desktop slide effect; on mobile, scrolling is free, so we
+     hide them to avoid covering content near the screen edges. */
+  .slide-nav {
+    display: none;
+  }
+
+  #about {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px 24px 60px;
+  }
+
+  .about-photo {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .about-text {
+    padding: 24px 0 0;
+  }
+
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #contact-heading .line:nth-child(2),
+  #contact-heading .line:nth-child(3) {
+    margin-left: 0;
+  }
+
+  #contact ul {
+    align-self: flex-start;
+    text-align: left;
+  }
+}

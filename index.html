@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Roberti — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="#about"><span aria-hidden="true">↘</span> about me</a></li>
+        <li><a href="#stack"><span aria-hidden="true">↘</span> stack</a></li>
+        <li><a href="#projects"><span aria-hidden="true">↘</span> projects</a></li>
+        <li><a href="#contact"><span aria-hidden="true">↘</span> contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <section id="home" aria-label="Introduction">
+      <p><code>printf ("hello world, i'm <strong>lucas roberti</strong>");</code></p>
+      <h1>fullstack-dev</h1>
+      <p>this is my portfolio</p>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <div class="about-photo">
+        <img src="./images/my-photo.png" alt="Portrait photo of Lucas Roberti">
+      </div>
+      <div class="about-text">
+        <h2 id="about-heading">about me</h2>
+        <p>
+          Hi! I'm a developer passionate about technology and innovation.
+          My journey in tech started with a mission to create digital
+          solutions that turn ideas into real, impactful products.
+        </p>
+      </div>
+    </section>
+
+    <section id="stack" aria-labelledby="stack-heading">
+      <h2 id="stack-heading">tools i use the most</h2>
+
+      <div class="stack-grid">
+        <div>
+          <h3>01. languages</h3>
+          <ul>
+            <li><i class="devicon-c-plain"></i> C</li>
+            <li><i class="devicon-java-plain"></i> Java</li>
+            <li><i class="devicon-html5-plain"></i> HTML5</li>
+            <li><i class="devicon-css3-plain"></i> CSS3</li>
+            <li><i class="devicon-javascript-plain"></i> JavaScript</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>02. framework</h3>
+          <ul>
+            <li><i class="devicon-spring-plain"></i> Spring Boot</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>03. database</h3>
+          <ul>
+            <li><i class="devicon-postgresql-plain"></i> PostgreSQL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">projects</h2>
+      <ol>
+        <li>
+          <span>Relational database project for financial management</span>
+          <a href="https://github.com/lucasroberti/finances-household-postgres" target="_blank" rel="noopener" aria-label="View more about Relational database project for financial management">
+            view more <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <span>MailGuard - Spam detector with Java</span>
+          <a href="https://github.com/MrlLabs/MailGuard" target="_blank" rel="noopener" aria-label="View more about MailGuard spam detector">
+            view more <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">
+        <span class="line">shall we</span>
+        <span class="line">work</span>
+        <span class="line">together?</span>
+      </h2>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/lucasroberti/" target="_blank" rel="noopener">
+            <span aria-hidden="true">↘</span> linkedin.com/in/lucasroberti
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/lucasroberti" target="_blank" rel="noopener">
+            <span aria-hidden="true">↘</span> github.com/lucasroberti
+          </a>
+        </li>
+        <li>
+          <a href="mailto:contact@lucasroberti.com">
+            <span aria-hidden="true">↘</span> contact@lucasroberti.com
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="slide-nav">
+    <button id="prevBtn" class="nav-circle" aria-label="Previous section">↑</button>
+    <button id="nextBtn" class="nav-circle" aria-label="Next section">↓</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
